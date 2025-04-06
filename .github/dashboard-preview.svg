@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="450" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="450" fill="#1A1A2E"/>
+  <path d="M0 0 L800 0 L800 450 L0 450 Z" fill="#1A1A2E" fill-opacity="0.9"/>
+
+  <!-- Dragon Scales Pattern -->
+  <defs>
+    <pattern id="scales" patternUnits="userSpaceOnUse" width="30" height="30" patternTransform="rotate(45)">
+      <path d="M0,15 a15,15 0 1,0 30,0 a15,15 0 1,0 -30,0" fill="none" stroke="#FFFFFF" stroke-width="0.2" stroke-opacity="0.1"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="450" fill="url(#scales)"/>
+
+  <!-- Sidebar -->
+  <rect x="0" y="0" width="240" height="450" fill="#22223A" fill-opacity="0.95"/>
+
+  <!-- Sidebar Logo Container -->
+  <circle cx="120" cy="90" r="50" fill="#22223A" stroke="#FF4D4D" stroke-width="2"/>
+  
+  <!-- Character Ruri Manga Style -->
+  <circle cx="120" cy="90" r="35" fill="#f0e6e6"/>
+  
+  <!-- Rambut -->
+  <ellipse cx="110" cy="80" rx="45" ry="30" fill="#111" />
+  
+  <!-- Mata -->
+  <circle cx="105" cy="90" r="6" fill="#111"/>
+  <circle cx="130" cy="90" r="6" fill="#111"/>
+  
+  <!-- Mulut -->
+  <ellipse cx="120" cy="105" rx="10" ry="3" fill="#FF4D4D"/>
+  
+  <!-- Tetesan Keringat (karakteristik Ruri) -->
+  <ellipse cx="132" cy="80" rx="2" ry="4" fill="#88ccff"/>
+  <ellipse cx="105" cy="75" rx="2" ry="4" fill="#88ccff"/>
+  
+  <!-- Sidebar Title -->
+  <text x="120" y="170" fill="white" font-family="Arial" font-size="18" text-anchor="middle" font-weight="bold">Ruri Dragon</text>
+  
+  <!-- Sidebar Menu -->
+  <rect x="20" y="200" width="200" height="40" rx="8" fill="rgba(255, 77, 77, 0.15)"/>
+  <rect x="20" y="200" width="4" height="25" rx="2" fill="#FF4D4D" transform="translate(0, 7.5)"/>
+  <text x="65" y="225" fill="white" font-family="Arial" font-size="14" font-weight="bold">Dashboard</text>
+  
+  <rect x="20" y="250" width="200" height="40" rx="8" fill="rgba(255, 255, 255, 0.05)"/>
+  <text x="65" y="275" fill="#B3B3CC" font-family="Arial" font-size="14">Statistik Server</text>
+  
+  <rect x="20" y="300" width="200" height="40" rx="8" fill="rgba(255, 255, 255, 0.05)"/>
+  <text x="65" y="325" fill="#B3B3CC" font-family="Arial" font-size="14">Server Discord</text>
+  
+  <rect x="20" y="350" width="200" height="40" rx="8" fill="rgba(255, 255, 255, 0.05)"/>
+  <text x="65" y="375" fill="#B3B3CC" font-family="Arial" font-size="14">Admin Panel</text>
+  
+  <!-- Dashboard Content -->
+  <text x="270" y="50" fill="white" font-family="Arial" font-size="24" font-weight="bold">Dashboard</text>
+  
+  <!-- Dashboard Cards -->
+  <rect x="270" y="80" width="240" height="120" rx="16" fill="#22223A"/>
+  <text x="290" y="110" fill="white" font-family="Arial" font-size="16" font-weight="bold">Members</text>
+  <text x="390" y="150" fill="white" font-family="Arial" font-size="28" font-weight="bold" text-anchor="middle">12,580</text>
+  
+  <rect x="530" y="80" width="240" height="120" rx="16" fill="#22223A"/>
+  <text x="550" y="110" fill="white" font-family="Arial" font-size="16" font-weight="bold">Messages</text>
+  <text x="650" y="150" fill="white" font-family="Arial" font-size="28" font-weight="bold" text-anchor="middle">1,458,923</text>
+  
+  <rect x="270" y="220" width="240" height="120" rx="16" fill="#22223A"/>
+  <text x="290" y="250" fill="white" font-family="Arial" font-size="16" font-weight="bold">Events</text>
+  <text x="390" y="290" fill="white" font-family="Arial" font-size="28" font-weight="bold" text-anchor="middle">289</text>
+  
+  <rect x="530" y="220" width="240" height="120" rx="16" fill="#22223A"/>
+  <text x="550" y="250" fill="white" font-family="Arial" font-size="16" font-weight="bold">Songs Played</text>
+  <text x="650" y="290" fill="white" font-family="Arial" font-size="28" font-weight="bold" text-anchor="middle">5,841</text>
+  
+  <!-- Chart Placeholder -->
+  <rect x="270" y="360" width="500" height="70" rx="16" fill="#22223A"/>
+  <text x="520" y="405" fill="#B3B3CC" font-family="Arial" font-size="16" text-anchor="middle">User Activity Chart</text>
+</svg> 

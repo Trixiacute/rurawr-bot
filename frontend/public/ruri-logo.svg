@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <circle cx="60" cy="60" r="60" fill="#22223A"/>
+  
+  <!-- Masking Effect -->
+  <mask id="circleMask">
+    <circle cx="60" cy="60" r="56" fill="white"/>
+  </mask>
+  
+  <!-- Image Reference (Using a placeholder here, will be loaded from an actual image file) -->
+  <rect x="0" y="0" width="120" height="120" mask="url(#circleMask)" fill="#333"/>
+  
+  <!-- Border -->
+  <circle cx="60" cy="60" r="58" fill="none" stroke="#FF4D4D" stroke-width="3"/>
+</svg> 

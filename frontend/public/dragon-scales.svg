@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="dragon-scales" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M0 20c5.523 0 10-4.477 10-10S5.523 0 0 0v20zm20 0c5.523 0 10-4.477 10-10S25.523 0 20 0v20zm20-20v20c5.523 0 10-4.477 10-10S45.523 0 40 0z" 
+            fill="currentColor" fill-opacity="0.1"/>
+      <path d="M0 40c5.523 0 10-4.477 10-10S5.523 20 0 20v20zm20 0c5.523 0 10-4.477 10-10S25.523 20 20 20v20zm20-20v20c5.523 0 10-4.477 10-10S45.523 20 40 20z" 
+            fill="currentColor" fill-opacity="0.1"/>
+    </pattern>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#dragon-scales)"/>
+</svg> 

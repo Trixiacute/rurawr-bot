@@ -1,0 +1,105 @@
+{
+  "status": "success",
+  "data": [
+    {
+      "id": "jakarta",
+      "name": "Jakarta"
+    },
+    {
+      "id": "surabaya",
+      "name": "Surabaya"
+    },
+    {
+      "id": "bandung",
+      "name": "Bandung"
+    },
+    {
+      "id": "medan",
+      "name": "Medan"
+    },
+    {
+      "id": "semarang",
+      "name": "Semarang"
+    },
+    {
+      "id": "yogyakarta",
+      "name": "Yogyakarta"
+    },
+    {
+      "id": "makassar",
+      "name": "Makassar"
+    },
+    {
+      "id": "palembang",
+      "name": "Palembang"
+    },
+    {
+      "id": "tangerang",
+      "name": "Tangerang"
+    },
+    {
+      "id": "depok",
+      "name": "Depok"
+    },
+    {
+      "id": "bekasi",
+      "name": "Bekasi"
+    },
+    {
+      "id": "padang",
+      "name": "Padang"
+    },
+    {
+      "id": "malang",
+      "name": "Malang"
+    },
+    {
+      "id": "bogor",
+      "name": "Bogor"
+    },
+    {
+      "id": "samarinda",
+      "name": "Samarinda"
+    },
+    {
+      "id": "tasikmalaya",
+      "name": "Tasikmalaya"
+    },
+    {
+      "id": "banjarmasin",
+      "name": "Banjarmasin"
+    },
+    {
+      "id": "pontianak",
+      "name": "Pontianak"
+    },
+    {
+      "id": "denpasar",
+      "name": "Denpasar"
+    },
+    {
+      "id": "balikpapan",
+      "name": "Balikpapan"
+    },
+    {
+      "id": "jambi",
+      "name": "Jambi"
+    },
+    {
+      "id": "manado",
+      "name": "Manado"
+    },
+    {
+      "id": "mataram",
+      "name": "Mataram"
+    },
+    {
+      "id": "pekanbaru",
+      "name": "Pekanbaru"
+    },
+    {
+      "id": "ambon",
+      "name": "Ambon"
+    }
+  ]
+}
