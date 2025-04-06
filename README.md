@@ -1,89 +1,89 @@
 # Rurawr Discord Bot
 
-Bot Discord multifungsi dengan fitur anime dan jadwal imsakiyah.
+A multifunctional Discord bot with anime features and Islamic prayer time schedule capabilities.
 
-## Struktur File
+## File Structure
 
-Struktur file dalam project ini telah diorganisir untuk memudahkan pengembangan dan pemeliharaan:
+The file structure in this project has been organized to facilitate development and maintenance:
 
 ```
 rurawr-bot/
-├── main.py                # Entry point utama
-├── .env                   # File konfigurasi environment variables
-├── README.md              # Dokumentasi project
+├── main.py                # Main entry point
+├── .env                   # Environment variables configuration file
+├── README.md              # Project documentation
 └── src/                   # Source code
-    ├── commands/          # Command bot
-    │   ├── general/       # Command-command umum
-    │   │   ├── help.py    # Command help
-    │   │   ├── info.py    # Command info
-    │   │   ├── invite.py  # Command invite
-    │   │   ├── ping.py    # Command ping
-    │   │   └── stats.py   # Command stats
-    │   ├── anime/         # Command-command terkait anime
-    │   │   ├── anime.py   # Command anime
-    │   │   └── waifu.py   # Command waifu
-    │   ├── islamic/       # Command-command terkait islami
-    │   │   └── imsakiyah.py # Command imsakiyah
-    │   └── settings/      # Command-command pengaturan
-    │       ├── language.py # Command language
-    │       └── prefix.py  # Command prefix
-    ├── core/              # Komponen inti bot
-    │   ├── bot.py         # Inisialisasi bot utama
-    │   ├── config.py      # Konfigurasi bot
-    │   ├── database.py    # Pengelolaan database
-    │   └── presence.py    # Fitur Rich Presence Discord
-    ├── utils/             # Fungsi utilitas
-    │   └── helper.py      # Fungsi helper/pembantu
-    └── data/              # Data yang disimpan oleh bot
-        └── database.json  # File database
+    ├── commands/          # Bot commands
+    │   ├── general/       # General commands
+    │   │   ├── help.py    # Help command
+    │   │   ├── info.py    # Info command
+    │   │   ├── invite.py  # Invite command
+    │   │   ├── ping.py    # Ping command
+    │   │   └── stats.py   # Stats command
+    │   ├── anime/         # Anime-related commands
+    │   │   ├── anime.py   # Anime command
+    │   │   └── waifu.py   # Waifu command
+    │   ├── islamic/       # Islamic-related commands
+    │   │   └── imsakiyah.py # Prayer time command
+    │   └── settings/      # Configuration commands
+    │       ├── language.py # Language command
+    │       └── prefix.py  # Prefix command
+    ├── core/              # Core bot components
+    │   ├── bot.py         # Main bot initialization
+    │   ├── config.py      # Bot configuration
+    │   ├── database.py    # Database management
+    │   └── presence.py    # Discord Rich Presence feature
+    ├── utils/             # Utility functions
+    │   └── helper.py      # Helper functions
+    └── data/              # Data stored by the bot
+        └── database.json  # Database file
 ```
 
-## Fitur
+## Features
 
-- **Fitur Anime**
-  - Pencarian informasi anime
-  - Kirim gambar waifu acak
+- **Anime Features**
+  - Anime information search
+  - Random waifu image generator
   
-- **Fitur Islami**
-  - Jadwal imsakiyah
+- **Islamic Features**
+  - Prayer time schedule (Imsakiyah)
   
-- **Pengaturan Server**
-  - Ubah prefix perintah
-  - Ubah bahasa bot
+- **Server Settings**
+  - Customizable command prefix
+  - Bot language settings
   
-- **Fitur Lainnya**
-  - Discord Rich Presence yang dinamis
-  - Help menu yang informatif
-  - Statistik penggunaan bot
+- **Other Features**
+  - Dynamic Discord Rich Presence
+  - Informative help menu
+  - Bot usage statistics
 
-## Cara Penggunaan
+## How to Use
 
-1. Clone repository ini
-2. Buat file `.env` dengan isi:
+1. Clone this repository
+2. Create a `.env` file with the following content:
 ```
-DISCORD_TOKEN=token_bot_anda_disini
+DISCORD_TOKEN=your_bot_token_here
 ```
 3. Install dependencies:
 ```
 pip install -r requirements.txt
 ```
-4. Jalankan bot:
+4. Run the bot:
 ```
 python main.py
 ```
 
 ## Rich Presence
 
-Bot ini memiliki fitur Discord Rich Presence yang dinamis. Status bot akan berganti secara otomatis setiap 5 menit, menampilkan:
+This bot features dynamic Discord Rich Presence. The bot's status will automatically change every 5 minutes, displaying:
 
-- Jumlah server yang dilayani
-- Jumlah user yang menggunakan bot
-- Uptime bot
-- Versi bot
+- Number of servers being served
+- Number of users using the bot
+- Bot uptime
+- Bot version
 
-## Perintah
+## Commands
 
-Gunakan `!help` untuk melihat daftar perintah yang tersedia.
+Use `!help` to see the list of available commands.
 
 ## Requirements
 
