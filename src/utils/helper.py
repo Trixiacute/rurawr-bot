@@ -1,16 +1,35 @@
 """
-helper.py - Utility functions untuk bot Discord
+helper.py - Utility functions for the Discord bot
 
-Berisi berbagai fungsi pembantu yang digunakan di seluruh aplikasi.
+This module contains various helper functions used
+throughout the Discord bot program.
 """
 
 import discord
 import time
 from datetime import datetime
 from typing import Optional, Dict, Any, List, Union, Tuple
+import re
+import logging
+import pytz
 
 from src.core.config import EMBED_COLORS, TIME_FORMAT
 from src.core.database import db
+
+# Configure logging to prevent non-ASCII characters from being displayed in terminal
+logging.basicConfig(level=logging.INFO, 
+                   format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+# Filter to prevent non-ASCII characters in logs
+class ASCIIFilter(logging.Filter):
+    def filter(self, record):
+        if isinstance(record.msg, str):
+            record.msg = re.sub(r'[^\x00-\x7F]+', '[non-ASCII]', record.msg)
+        return True
+
+# Apply filter to root logger
+root_logger = logging.getLogger()
+root_logger.addFilter(ASCIIFilter())
 
 def create_embed(
     title: Optional[str] = None, 
@@ -177,4 +196,141 @@ def get_uptime_string(bot) -> str:
     elif minutes > 0:
         return f"{minutes}m {seconds}s"
     else:
-        return f"{seconds}s" 
+        return f"{seconds}s"
+
+# Function to get guild language
+def get_lang(guild_id):
+    """
+    Get language setting from guild
+    
+    Args:
+        guild_id: Discord guild ID
+        
+    Returns:
+        Language code string (id, en, etc.)
+    """
+    from src.core.database import MemoryDB
+    db = MemoryDB()
+    return db.get_guild_language(guild_id)
+
+# Function to get guild prefix
+def get_prefix(bot, message):
+    """
+    Get command prefix for a guild
+    
+    Args:
+        bot: Bot instance
+        message: Discord message
+        
+    Returns:
+        Command prefix string
+    """
+    if message.guild is None:
+        return "!"  # Default prefix for DMs
+    from src.core.database import MemoryDB
+    db = MemoryDB()
+    return db.get_guild_prefix(message.guild.id)
+
+# Translations helper function
+def get_text(guild_id: Optional[int], key: str, **kwargs) -> str:
+    """
+    Get translated text based on guild language
+    
+    Args:
+        guild_id: Discord guild ID
+        key: Translation key (e.g. 'commands.help.title')
+        **kwargs: Parameters to insert into the string
+        
+    Returns:
+        Translated string
+    """
+    from src.core import LANGUAGES
+    lang = get_lang(guild_id)
+    
+    # Split the key by dots to handle nested keys
+    keys = key.split('.')
+    value = LANGUAGES[lang]["translations"]
+    
+    # Navigate through nested dictionary
+    for k in keys:
+        if k in value:
+            value = value[k]
+        else:
+            # If key not found, use the default language (id)
+            if lang != "id":
+                return get_text(guild_id, key, lang="id", **kwargs)
+            # If still not found, return the key itself
+            return key
+    
+    # If we have a string, format it with kwargs
+    if isinstance(value, str):
+        try:
+            value = value.format(**kwargs)
+        except KeyError:
+            # If there's a missing key in kwargs, use key as fallback
+            pass
+    
+    return value
+
+def get_command_stats():
+    """
+    Get command usage statistics
+    
+    Returns:
+        Dictionary with command statistics
+    """
+    from src.core.database import MemoryDB
+    db = MemoryDB()
+    return db.get_command_stats()
+
+def get_timestamp():
+    """
+    Get current timestamp with Indonesia time
+    
+    Returns:
+        Timestamp string
+    """
+    # Get current time in Asia/Jakarta timezone
+    tz = pytz.timezone('Asia/Jakarta')
+    now = datetime.now(tz)
+    return now.strftime("%Y-%m-%d %H:%M:%S %z")
+
+def format_time_id(dt):
+    """
+    Format time to Indonesian format
+    
+    Args:
+        dt: Datetime object
+        
+    Returns:
+        Formatted time string
+    """
+    days_id = {
+        0: "Senin",
+        1: "Selasa",
+        2: "Rabu",
+        3: "Kamis", 
+        4: "Jumat",
+        5: "Sabtu",
+        6: "Minggu"
+    }
+    
+    months_id = {
+        1: "Januari",
+        2: "Februari",
+        3: "Maret",
+        4: "April",
+        5: "Mei",
+        6: "Juni",
+        7: "Juli",
+        8: "Agustus",
+        9: "September",
+        10: "Oktober",
+        11: "November",
+        12: "Desember"
+    }
+    
+    day_name = days_id.get(dt.weekday(), "")
+    month_name = months_id.get(dt.month, "")
+    
+    return f"{day_name}, {dt.day} {month_name} {dt.year}, {dt.strftime('%H:%M:%S')}" 

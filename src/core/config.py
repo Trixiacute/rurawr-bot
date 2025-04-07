@@ -1,8 +1,8 @@
 """
-config.py - File konfigurasi utama bot
+config.py - Configuration module for Discord bot
 
-Berisi konstanta-konstanta dan konfigurasi utama yang digunakan 
-di seluruh aplikasi bot Discord.
+This module contains configuration settings and constants used
+throughout the Discord bot application.
 """
 
 import os
@@ -11,16 +11,22 @@ from dotenv import load_dotenv
 # Load environment variables
 load_dotenv()
 
-# Bot token (required)
-TOKEN = os.getenv('DISCORD_TOKEN')
-if not TOKEN:
-    raise ValueError("DISCORD_TOKEN tidak ditemukan di file .env. Silakan tambahkan token bot Discord Anda.")
+# Bot token from environment variable
+BOT_TOKEN = os.getenv('DISCORD_TOKEN')
 
-# Default prefix if not set for a server
-DEFAULT_PREFIX = "!"
+# Bot configuration
+PREFIX = "!"  # Default prefix
+OWNER_ID = int(os.getenv('OWNER_ID', '0'))  # Bot owner's Discord ID
 
-# Default language if not set for a server
-DEFAULT_LANGUAGE = "id"
+# Log file configuration
+LOG_FILE = "logs/bot.log"
+LOG_LEVEL = "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+
+# Database configuration
+DATABASE_FILE = "src/data/database.json"
+
+# Command cooldown (in seconds)
+COOLDOWN = 3
 
 # Warna untuk embed Discord
 EMBED_COLORS = {
@@ -38,12 +44,9 @@ BOT_INFO = {
     "version": "1.2.0",
     "description": "Bot multifungsi dengan fitur anime dan jadwal imsakiyah",
     "author": "Bot ini dibuat oleh **Kezia**",
-    "github": "https://github.com/username/rurawr-bot",
+    "github": "https://github.com/Trixiacute/rurawr-bot",
     "support_server": "https://discord.gg/support"
 }
-
-# Format waktu
-TIME_FORMAT = "%Y-%m-%d %H:%M:%S"
 
 # URL API untuk Waifu
 WAIFU_API_URL = "https://api.waifu.pics/"
@@ -52,11 +55,79 @@ WAIFU_CATEGORIES = {
     "nsfw": [] # Dikosongkan untuk bot SFW
 }
 
-# Logger configuration
-LOGGING_CONFIG = {
-    "format": "[%(asctime)s] [%(levelname)s] [%(name)s]: %(message)s",
-    "datefmt": "%Y-%m-%d %H:%M:%S",
-    "level": "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+# Deskripsi command
+COMMAND_DESCRIPTIONS = {
+    "help": "Menampilkan daftar perintah yang tersedia atau informasi tentang perintah tertentu",
+    "help_usage": "help [command]",
+    
+    "ping": "Memeriksa latensi bot dan waktu respons",
+    
+    "info": "Menampilkan informasi tentang bot",
+    
+    "stats": "Menampilkan statistik penggunaan bot (hanya admin)",
+    
+    "invite": "Mendapatkan link untuk mengundang bot ke server lain",
+    
+    "prefix": "Mengubah prefix command untuk server ini",
+    "prefix_usage": "prefix <new_prefix>",
+    
+    "language": "Mengubah bahasa bot untuk server ini",
+    "language_usage": "language <id|en>",
+    
+    "anime": "Mencari informasi anime",
+    "anime_usage": "anime <judul>",
+    
+    "waifu": "Mendapatkan gambar waifu acak",
+    "waifu_usage": "waifu [category]",
+    
+    "imsakiyah": "Menampilkan jadwal imsakiyah",
+    "imsakiyah_usage": "imsakiyah <kota>",
+    
+    "imsak": "Alias untuk command imsakiyah",
+    
+    "jadwal": "Menampilkan jadwal imsakiyah (alias untuk imsakiyah)"
+}
+
+# Format waktu
+TIME_FORMAT = "%Y-%m-%d %H:%M:%S"
+
+# Teks bantuan
+HELP_TEXT = {
+    "id": """
+**Perintah Dasar:**
+`{prefix}help` - Menampilkan daftar perintah
+`{prefix}ping` - Memeriksa latensi bot
+`{prefix}info` - Informasi tentang bot
+
+**Pengaturan:**
+`{prefix}prefix <new_prefix>` - Mengubah prefix bot
+`{prefix}language <id|en>` - Mengubah bahasa
+
+**Fitur Anime:**
+`{prefix}anime <judul>` - Mencari info anime
+`{prefix}waifu [category]` - Gambar waifu acak
+
+**Fitur Islami:**
+`{prefix}imsakiyah <kota>` - Jadwal imsakiyah
+""",
+    
+    "en": """
+**Basic Commands:**
+`{prefix}help` - Show command list
+`{prefix}ping` - Check bot latency
+`{prefix}info` - Bot information
+
+**Settings:**
+`{prefix}prefix <new_prefix>` - Change bot prefix
+`{prefix}language <id|en>` - Change language
+
+**Anime Features:**
+`{prefix}anime <title>` - Search anime info
+`{prefix}waifu [category]` - Random waifu image
+
+**Islamic Features:**
+`{prefix}imsakiyah <city>` - Imsakiyah schedule
+"""
 }
 
 # Path-path penting
